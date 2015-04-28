@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+# Uncomment this line to define a global platform for your project
+platform :ios, "7.0"
+
+link_with 'sampleapp', 'CodeExamples'
+
+pod 'SynergyKit-SDK'
+pod 'MBProgressHUD'
+pod 'Facebook-iOS-SDK'
+pod 'google-plus-ios-sdk'
+pod 'TWReverseAuth'

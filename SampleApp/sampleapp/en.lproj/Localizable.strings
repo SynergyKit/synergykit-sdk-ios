@@ -1,0 +1,11 @@
+// ExternalAuthenticator Strings
+"Facebook Error"="Facebook Error";
+"Facebook Session Error"="Facebook Session Error";
+"Your current session is no longer valid. Please log in again."="Your current session is no longer valid. Please log in again.";
+"Please retry. If the problem persists contact us and mention this error code: "="Please retry. If the problem persists contact us and mention this error code: ";
+"Ok"="Ok";
+"Twitter Error"="Twitter Error";
+"Access to the Twitter accounts isn't granted."="Access to the Twitter accounts isn't granted.";
+"You don't have any Twitter account(s)."="You don't have any Twitter account(s).";
+"Select the Twitter account"="Select the Twitter account";
+"Cancel"="Cancel";

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2929EAEA-5043-4BF5-9A60-ABE2BF5B9997</string>
+	<key>IDESourceControlProjectName</key>
+	<string>sampleapp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>42CC3C49D939FF71F8DAB42D95D6BEF9F798CFD7</key>
+		<string>bitbucket.org:letsgood/time-iphone-application.git</string>
+		<key>86B0E45745A85FBF568105201E520F1481661F1B</key>
+		<string>https://bitbucket.org/letsgood/synergykit-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SampleApp/sampleapp.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>42CC3C49D939FF71F8DAB42D95D6BEF9F798CFD7</key>
+		<string>../../../time-iphone-application</string>
+		<key>86B0E45745A85FBF568105201E520F1481661F1B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/letsgood/synergykit-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>86B0E45745A85FBF568105201E520F1481661F1B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>86B0E45745A85FBF568105201E520F1481661F1B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>synergykit-sdk-ios</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>42CC3C49D939FF71F8DAB42D95D6BEF9F798CFD7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>time-iphone-application</string>
+		</dict>
+	</array>
+</dict>
+</plist>
