@@ -12,7 +12,7 @@
 	<dict>
 		<key>42CC3C49D939FF71F8DAB42D95D6BEF9F798CFD7</key>
 		<string>bitbucket.org:letsgood/time-iphone-application.git</string>
-		<key>86B0E45745A85FBF568105201E520F1481661F1B</key>
+		<key>993A12DFB1A5439843A18FD025D6A559A30BA48B</key>
 		<string>https://bitbucket.org/letsgood/synergykit-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
@@ -21,7 +21,7 @@
 	<dict>
 		<key>42CC3C49D939FF71F8DAB42D95D6BEF9F798CFD7</key>
 		<string>../../../time-iphone-application</string>
-		<key>86B0E45745A85FBF568105201E520F1481661F1B</key>
+		<key>993A12DFB1A5439843A18FD025D6A559A30BA48B</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -29,14 +29,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>86B0E45745A85FBF568105201E520F1481661F1B</string>
+	<string>993A12DFB1A5439843A18FD025D6A559A30BA48B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>86B0E45745A85FBF568105201E520F1481661F1B</string>
+			<string>993A12DFB1A5439843A18FD025D6A559A30BA48B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>synergykit-sdk-ios</string>
 		</dict>

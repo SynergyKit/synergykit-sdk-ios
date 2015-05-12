@@ -1,7 +1,7 @@
 <h1 id="synergykit-ios-sdk">SynergyKit iOS SDK</h1>
 
 <p align="left">
-<img src="https://synergykit.blob.core.windows.net/synergykit/synergykitlogo.png" alt="Synergykit" title="Synergykit" width="33%">
+<img src="https://synergykit.blob.core.windows.net/synergykit/synergykitlogo.png" alt="Synergykit" title="Synergykit" width="224px">
 </p>
 
 <p><a href="http://cocoadocs.org/docsets/SynergyKit-SDK"><img src="https://img.shields.io/cocoapods/v/SynergyKit-SDK.svg?style=flat" alt="Version" title=""></a> <a href="http://cocoadocs.org/docsets/SynergyKit-SDK"><img src="https://img.shields.io/cocoapods/l/SynergyKit-SDK.svg?style=flat" alt="License" title=""></a> <a href="http://cocoadocs.org/docsets/SynergyKit-SDK"><img src="https://img.shields.io/cocoapods/p/SynergyKit-SDK.svg?style=flat" alt="Platform" title=""></a></p>
@@ -14,8 +14,8 @@
 
 <ul>
 <li><a href="https://github.com/SynergyKit/synergykit-sdk-android">Android SDK</a></li>
-<li><a href="https://github.com/SynergyKit/synergykit-sdk-nodejs">Node.js SDK</a> <br>
-<br></li>
+<li><a href="https://github.com/SynergyKit/synergykit-sdk-nodejs">Node.js SDK</a></li>
+<li><a href="https://github.com/SynergyKit/synergykit-sdk-javascript">JavaScript SDK</a></li>
 </ul>
 
 <p><strong>Table of content</strong></p>
@@ -35,7 +35,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#synergykit-initialization">Synergykit Initialization</a></li>
+<li><a href="#synergykit-initialization">SynergyKit Initialization</a></li>
 <li><a href="#responses-handling">Responses handling</a></li>
 <li><a href="#documents">Documents</a><ul>
 <li><a href="#create-new-document">Create new document</a></li>
@@ -136,24 +136,27 @@
 
 <p>Almost all possibilities of SynergyKit are presented in Sample Application that was developed next to SDK as introduction of how it works.</p>
 
+
+
 <h3 id="sample-app-installation">Sample App Installation</h3>
 
-<ul>
-<li>Clone or download the repository.</li>
-<li>Go to SampleApp folder in Terminal.</li>
-<li>Run <code>pod install</code>*.</li>
-<li>Open .xcworkspace file.</li>
-</ul>
-
-<p>* <strong><em>Cocoapods required</em></strong></p>
-
-
+<ol>
+<li><p>Clone or download the repository. <br>
+<code>git clone https://github.com/SynergyKit/synergykit-sdk-ios</code></p></li>
+<li><p>Go to SampleApp folder in Terminal.</p></li>
+<li><p>Install pods (<strong>CocoaPods required</strong>). <br>
+<code>pod install</code></p></li>
+<li><p>Open .xcworkspace file. <br>
+<code>open sampleapp.xcworkspace</code></p></li>
+</ol>
 
 <h2 id="sdk-installation">SDK Installation</h2>
 
 <p><strong>SynergyKit-SDK</strong> is available through <a href="http://cocoapods.org/pods/SynergyKit-SDK">CocoaPods</a>. To install it, simply add the following line to your Podfile:</p>
 
 <p><code>pod 'SynergyKit-SDK'</code></p>
+
+
 
 <h2 id="architecture">Architecture</h2>
 
@@ -163,11 +166,13 @@
 
 <p>Building of data model is one of the most important activity in application development.</p>
 
-<p>If you want to use SynergyKit SDK for development, you need to start with subclassing of <code>SynergykitObject</code> in data model. <code>SynergykitObject</code> contains <em>must have</em> properties for communication with SynergyKit â€“ _id, __v,  createdAt and updatedAt. It also conforms to <code>SynergykitProtocol</code>,  <code>SBatchableProtocol</code> and <code>SCacheableProtocol</code> that simplify cooperation with SynergyKit.</p>
+<p>If you want to use SynergyKit SDK for development, you need to start with subclassing of <code>SynergykitObject</code> in data model. <code>SynergykitObject</code> contains <em>must have</em> properties for communication with SynergyKit - _id, __v,  createdAt and updatedAt. It also conforms to <code>SynergykitProtocol</code>,  <code>SBatchableProtocol</code> and <code>SCacheableProtocol</code> that simplify cooperation with SynergyKit.</p>
 
-<p><code>SynergykitObject</code> serialization and deserialization is based on <a href="http://www.jsonmodel.com">JSONModel</a>. Marin Todorov â€“ author of JSONModel â€“ presents nice examples of magic modelling framework on <a href="https://github.com/icanzilb/JSONModel/#examples">github framework page here</a>.</p>
+<p><code>SynergykitObject</code> serialization and deserialization is based on <a href="http://www.jsonmodel.com">JSONModel</a>. Marin Todorov - author of JSONModel - presents nice examples of magic modelling framework on <a href="https://github.com/icanzilb/JSONModel/#examples">github framework page here</a>.</p>
 
 <p><strong>Be afraid of writing model in Swift. Swift is not fully supported with JSONModel.</strong></p>
+
+
 
 <h4 id="examples">Examples</h4>
 
@@ -197,7 +202,7 @@
 </tbody>
 </table>
 
-<p>If your object has property that isnâ€™t synchronized with server, just say that conforms to protocol <code>Optional</code> or <code>Ignore</code>. These protocols are <strong>important for deserialization</strong> because json string must contain all properties <em>without</em> these protocols. <a href="https://github.com/icanzilb/JSONModel/blob/master/README.md#optional-properties-ie-can-be-missing-or-null">More information about JSONModel protocols</a>.</p>
+<p>If your object has property that isnâ€™t synchronized with server, just say that conforms to protocol <code>Optional</code> or <code>Ignore</code>. These protocols are <strong>important for deserialization</strong> because JSON string must contain all properties <em>without</em> these protocols. <a href="https://github.com/icanzilb/JSONModel/blob/master/README.md#optional-properties-ie-can-be-missing-or-null">More information about JSONModel protocols</a>.</p>
 
 <table>
 <tbody>
@@ -231,9 +236,11 @@
 
 <h2 id="synergykit-initialization">SynergyKit Initialization</h2>
 
-<p>If installation process have been done, itâ€™s time to basic setup. There are required options as tenant and key and one optional â€“ enable debugging.</p>
+<p>If installation process have been done, itâ€™s time for basic setup. There are required options as tenant and key and one optional - enable debugging.</p>
 
 <p>Tenant and key are situated in <strong>Settings &gt; Application keys &gt; Tenant</strong> and <strong>Settings &gt; Application keys &gt; Value</strong> in Synergykit web application.</p>
+
+
 
 <pre class="prettyprint"><code class="language-objective-c hljs ini"><span class="hljs-title">[Synergykit setTenant:@"tenant" key:@"key"]</span><span class="hljs-comment">;</span>
 <span class="hljs-title">[Synergykit enableDebugging:YES]</span><span class="hljs-comment">;</span></code></pre>
@@ -255,13 +262,13 @@ Synergykit.enableDebugging(<span class="hljs-literal">true</span>)</code></pre>
 
 <pre class="prettyprint"><code class="language-objective-c hljs applescript">^(SResponse *<span class="hljs-constant">result</span>) {
     <span class="hljs-keyword">if</span> ([<span class="hljs-constant">result</span> succeeded])
-    {
-        YourType *successObject = (YourType *) <span class="hljs-constant">result</span>;
-    }
-    <span class="hljs-keyword">else</span>
-    {
-        NSError *errorObject = <span class="hljs-constant">result</span>.<span class="hljs-keyword">error</span>
-    }
+  {
+      YourType *successObject = (YourType *) <span class="hljs-constant">result</span>;
+  }
+  <span class="hljs-keyword">else</span>
+  {
+      NSError *errorObject = <span class="hljs-constant">result</span>.<span class="hljs-keyword">error</span>
+  }
 }
 </code></pre>
 
@@ -269,14 +276,14 @@ Synergykit.enableDebugging(<span class="hljs-literal">true</span>)</code></pre>
 
 <pre class="prettyprint"><code class="language-swift hljs applescript">{
     (<span class="hljs-constant">result</span> : SResponse!) -&gt; Void <span class="hljs-keyword">in</span>
-    <span class="hljs-keyword">if</span> <span class="hljs-constant">result</span>.succeeded()
-    {
-        let successObject = <span class="hljs-constant">result</span>.<span class="hljs-constant">result</span> <span class="hljs-keyword">as</span> YourType
-    }
-    <span class="hljs-keyword">else</span>
-    {
-        let errorObject = <span class="hljs-constant">result</span>.<span class="hljs-keyword">error</span>
-    }
+  <span class="hljs-keyword">if</span> <span class="hljs-constant">result</span>.succeeded()
+  {
+      let successObject = <span class="hljs-constant">result</span>.<span class="hljs-constant">result</span> <span class="hljs-keyword">as</span> YourType
+  }
+  <span class="hljs-keyword">else</span>
+  {
+      let errorObject = <span class="hljs-constant">result</span>.<span class="hljs-keyword">error</span>
+  }
 }</code></pre>
 
 <p>Complex requests with more than one object in return response as <code>SResponseWrapper</code> object.</p>
@@ -284,40 +291,40 @@ Synergykit.enableDebugging(<span class="hljs-literal">true</span>)</code></pre>
 
 
 <pre class="prettyprint"><code class="language-objective-c hljs cs">^(SResponseWrapper *results) {
-    <span class="hljs-keyword">if</span> ([results succeeded])
-    {
-        <span class="hljs-keyword">for</span> (YourType *response <span class="hljs-keyword">in</span> results.results)
-        {
-            <span class="hljs-comment">// Handle response</span>
-        }
-    }
-    <span class="hljs-keyword">else</span>
-    {
-        <span class="hljs-keyword">for</span> (NSError *response <span class="hljs-keyword">in</span> results.results)
-        {
-            <span class="hljs-comment">// Handle error</span>
-        }
-    }
+  <span class="hljs-keyword">if</span> ([results succeeded])
+  {
+      <span class="hljs-keyword">for</span> (YourType *response <span class="hljs-keyword">in</span> results.results)
+      {
+        <span class="hljs-comment">// Handle response</span>
+      }
+  }
+  <span class="hljs-keyword">else</span>
+  {
+      <span class="hljs-keyword">for</span> (NSError *response <span class="hljs-keyword">in</span> results.results)
+      {
+          <span class="hljs-comment">// Handle error</span>
+      }
+  }
 }</code></pre>
 
 
 
 <pre class="prettyprint"><code class="language-swift hljs cs">{
     (results : SResponseWrapper!) -&gt; Void <span class="hljs-keyword">in</span>
-    <span class="hljs-keyword">if</span> results.succeeded()
-    {
-        <span class="hljs-keyword">for</span> response <span class="hljs-keyword">in</span> results.results() <span class="hljs-keyword">as</span> [YourType]
-        {
-            <span class="hljs-comment">// Handle response</span>
-        }
-    }
-    <span class="hljs-keyword">else</span>
-    {
-        <span class="hljs-keyword">for</span> error <span class="hljs-keyword">in</span> results.errors()
-        {
-            <span class="hljs-comment">// Handle error</span>
-        }
-    }
+  <span class="hljs-keyword">if</span> results.succeeded()
+  {
+      <span class="hljs-keyword">for</span> response <span class="hljs-keyword">in</span> results.results() <span class="hljs-keyword">as</span> [YourType]
+      {
+        <span class="hljs-comment">// Handle response</span>
+      }
+  }
+  <span class="hljs-keyword">else</span>
+  {
+      <span class="hljs-keyword">for</span> error <span class="hljs-keyword">in</span> results.errors()
+      {
+          <span class="hljs-comment">// Handle error</span>
+      }
+  }
 }</code></pre>
 
 
@@ -789,6 +796,8 @@ observer.startObservingWithObjectHandler({
 
 <p>For more complex filtering and sorting SynergyKit accepts OData standard. These queries can be used with data, users and files.</p>
 
+
+
 <h3 id="available-conditions">Available conditions</h3>
 
 <p>Query string is builded according to <a href="http://odata.org">OData Protocol</a> and is appended to the end of the url.</p>
@@ -1008,7 +1017,7 @@ SQuery <span class="hljs-variable">*query</span> = [[SQuery alloc] initWithObjec
 <span class="hljs-reserved">let</span> query = SQuery(<span class="hljs-attribute">object</span>: user)
 
 query.find {
-    <span class="hljs-function"><span class="hljs-params">(result : SResponseWrapper!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
+  <span class="hljs-function"><span class="hljs-params">(result : SResponseWrapper!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
     <span class="hljs-regexp">//</span> Handle received objects
 }</code></pre>
 
@@ -1053,7 +1062,7 @@ query.find {
 <span class="hljs-keyword">let</span> query <span class="hljs-subst">=</span> SQuery(object: <span class="hljs-built_in">data</span>)
 
 query<span class="hljs-built_in">.</span>find {
-    (result : SResponseWrapper<span class="hljs-subst">!</span>) <span class="hljs-subst">-&gt; </span><span class="hljs-literal">Void</span> <span class="hljs-keyword">in</span>
+  (result : SResponseWrapper<span class="hljs-subst">!</span>) <span class="hljs-subst">-&gt; </span><span class="hljs-literal">Void</span> <span class="hljs-keyword">in</span>
     <span class="hljs-comment">// Handle received objects</span>
 }</code></pre>
 
@@ -1098,7 +1107,7 @@ SQuery <span class="hljs-variable">*query</span> = [[SQuery alloc] initWithObjec
 <span class="hljs-keyword">let</span> query <span class="hljs-subst">=</span> SQuery(object: file)
 
 query<span class="hljs-built_in">.</span>find {
-    (result : SResponseWrapper<span class="hljs-subst">!</span>) <span class="hljs-subst">-&gt; </span><span class="hljs-literal">Void</span> <span class="hljs-keyword">in</span>
+  (result : SResponseWrapper<span class="hljs-subst">!</span>) <span class="hljs-subst">-&gt; </span><span class="hljs-literal">Void</span> <span class="hljs-keyword">in</span>
     <span class="hljs-comment">// Handle received objects</span>
 }</code></pre>
 
@@ -1107,6 +1116,8 @@ query<span class="hljs-built_in">.</span>find {
 <h2 id="users">Users</h2>
 
 <p>Users are alfa and omega of every application. In SynergyKit you can easily work with your users by methods listed below.</p>
+
+
 
 <h3 id="create-a-new-user">Create a new user</h3>
 
@@ -1141,8 +1152,8 @@ query<span class="hljs-built_in">.</span>find {
 <pre class="prettyprint"><code class="language-swift hljs coffeescript"><span class="hljs-reserved">let</span> user = SynergykitUser()
 
 user.save {
-    <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
-    <span class="hljs-regexp">//</span> Handle result
+  <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
+  <span class="hljs-regexp">//</span> Handle result
 }</code></pre>
 
 
@@ -1180,8 +1191,8 @@ user.save {
 <pre class="prettyprint"><code class="language-swift hljs coffeescript"><span class="hljs-reserved">let</span> user = SynergykitUser(<span class="hljs-attribute">id</span>: <span class="hljs-string">"object-id"</span>)
 
 user.fetch {
-    <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
-    <span class="hljs-regexp">//</span> Handle result
+  <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
+  <span class="hljs-regexp">//</span> Handle result
 }</code></pre>
 
 
@@ -1227,8 +1238,8 @@ user.fetch {
 <pre class="prettyprint"><code class="language-swift hljs coffeescript"><span class="hljs-reserved">let</span> user = SynergykitUser(<span class="hljs-attribute">id</span>: <span class="hljs-string">"object-id"</span>)
 
 user.save {
-    <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
-    <span class="hljs-regexp">//</span> Handle result
+  <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
+  <span class="hljs-regexp">//</span> Handle result
 }</code></pre>
 
 
@@ -1266,8 +1277,8 @@ user.save {
 <pre class="prettyprint"><code class="language-swift hljs coffeescript"><span class="hljs-reserved">let</span> user = SynergykitUser(<span class="hljs-attribute">id</span>: <span class="hljs-string">"object-id"</span>)
 
 user.destroy {
-    <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
-    <span class="hljs-regexp">//</span> Handle result
+  <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
+  <span class="hljs-regexp">//</span> Handle result
 }</code></pre>
 
 
@@ -1311,8 +1322,8 @@ user.destroy {
 <pre class="prettyprint"><code class="language-swift hljs coffeescript"><span class="hljs-reserved">let</span> user = SynergykitUser(<span class="hljs-attribute">id</span>: <span class="hljs-string">"object-id"</span>)
 
 user.addRole(<span class="hljs-string">"master"</span>, <span class="hljs-attribute">handler</span>: {
-    <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
-    <span class="hljs-regexp">//</span> Handle result
+  <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
+  <span class="hljs-regexp">//</span> Handle result
 })</code></pre>
 
 
@@ -1356,8 +1367,8 @@ user.addRole(<span class="hljs-string">"master"</span>, <span class="hljs-attrib
 <pre class="prettyprint"><code class="language-swift hljs coffeescript"><span class="hljs-reserved">let</span> user = SynergykitUser(<span class="hljs-attribute">id</span>: <span class="hljs-string">"object-id"</span>)
 
 user.removeRole(<span class="hljs-string">"master"</span>, <span class="hljs-attribute">handler</span>: {
-    <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
-    <span class="hljs-regexp">//</span> Handle result
+  <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
+  <span class="hljs-regexp">//</span> Handle result
 })</code></pre>
 
 
@@ -1409,8 +1420,8 @@ platform<span class="hljs-variable">.development</span> = [<span class="hljs-bui
 <span class="hljs-built_in">platform</span>.development = NSNumber(bool: <span class="hljs-constant">true</span>)
 
 <span class="hljs-built_in">platform</span>.save {
-    (<span class="hljs-built_in">result</span> : SResponse!) -&gt; Void <span class="hljs-operator">in</span>
-   <span class="hljs-comment"> // Handle result</span>
+  (<span class="hljs-built_in">result</span> : SResponse!) -&gt; Void <span class="hljs-operator">in</span>
+ <span class="hljs-comment"> // Handle result</span>
 }</code></pre>
 
 
@@ -1448,8 +1459,8 @@ platform<span class="hljs-variable">.development</span> = [<span class="hljs-bui
 <pre class="prettyprint"><code class="language-swift hljs livecodeserver">let <span class="hljs-built_in">platform</span> = SPlatform(id: <span class="hljs-string">"platform-id"</span>)
 
 <span class="hljs-built_in">platform</span>.fetch {
-    (<span class="hljs-built_in">result</span> : SResponse!) -&gt; Void <span class="hljs-operator">in</span>
-   <span class="hljs-comment"> // Handle result</span>
+  (<span class="hljs-built_in">result</span> : SResponse!) -&gt; Void <span class="hljs-operator">in</span>
+ <span class="hljs-comment"> // Handle result</span>
 }</code></pre>
 
 
@@ -1505,8 +1516,8 @@ platform<span class="hljs-variable">.development</span> = [<span class="hljs-bui
 <span class="hljs-built_in">platform</span>.development = NSNumber(bool: <span class="hljs-constant">false</span>)
 
 <span class="hljs-built_in">platform</span>.save {
-    (<span class="hljs-built_in">result</span> : SResponse!) -&gt; Void <span class="hljs-operator">in</span>
-   <span class="hljs-comment"> // Handle result</span>
+  (<span class="hljs-built_in">result</span> : SResponse!) -&gt; Void <span class="hljs-operator">in</span>
+ <span class="hljs-comment"> // Handle result</span>
 }</code></pre>
 
 
@@ -1544,8 +1555,8 @@ platform<span class="hljs-variable">.development</span> = [<span class="hljs-bui
 <pre class="prettyprint"><code class="language-swift hljs livecodeserver">let <span class="hljs-built_in">platform</span> = SPlatform(id: <span class="hljs-string">"platform-id"</span>)
 
 <span class="hljs-built_in">platform</span>.destroy {
-    (<span class="hljs-built_in">result</span> : SResponse!) -&gt; Void <span class="hljs-operator">in</span>
-   <span class="hljs-comment"> // Handle result</span>
+  (<span class="hljs-built_in">result</span> : SResponse!) -&gt; Void <span class="hljs-operator">in</span>
+ <span class="hljs-comment"> // Handle result</span>
 }</code></pre>
 
 
@@ -1589,8 +1600,8 @@ platform<span class="hljs-variable">.development</span> = [<span class="hljs-bui
 <pre class="prettyprint"><code class="language-swift hljs coffeescript"><span class="hljs-reserved">let</span> user = SynergykitUser(<span class="hljs-attribute">id</span>: <span class="hljs-string">"object-id"</span>)
 
 user.activate {
-    <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
-    <span class="hljs-regexp">//</span> Handle result
+  <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
+  <span class="hljs-regexp">//</span> Handle result
 }</code></pre>
 
 
@@ -1640,8 +1651,8 @@ user.email = <span class="hljs-string">"dummy@synergykit.com"</span>;
 user.password = <span class="hljs-string">"my-password"</span>;
 
 user.login {
-    <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
-    <span class="hljs-regexp">//</span> Handle result
+  <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
+  <span class="hljs-regexp">//</span> Handle result
 }</code></pre>
 
 
@@ -1650,9 +1661,11 @@ user.login {
 
 <p>In SynergyKit you can communicate with your users by different ways. There are listed some methods below this section.</p>
 
-<p>One way is to sending push notifications into user devices. This action need to have filled your API key for Android devices in Settings, section Android. For push notifications into iOS devices you need to fill your password and certificates into Apple section in Settings.</p>
+<p>One way is sending push notifications into user devices. This action need to have filled your API key for Android devices in Settings, section Android. For push notifications into iOS devices you need to fill your password and certificates into Apple section in Settings.</p>
 
-<p>Another way is to sending emails to your users. For this you need to create email templates in administration under Mailing section.</p>
+<p>Another way is sending emails to your users. For this you need to create email templates in administration under Mailing section.</p>
+
+
 
 <h3 id="send-notification">Send notification</h3>
 
@@ -1717,8 +1730,8 @@ notification.alert = <span class="hljs-variable">@"</span>Hello Lucas"</span>;
 notification.alert = <span class="hljs-string">"Hello Lucas"</span>
 
 notification.send {
-    <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
-    <span class="hljs-regexp">//</span> Handle result
+  <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
+  <span class="hljs-regexp">//</span> Handle result
 }</code></pre>
 
 
@@ -1794,8 +1807,8 @@ email<span class="hljs-preprocessor">.templateName</span> = <span class="hljs-st
 email<span class="hljs-preprocessor">.args</span> = [<span class="hljs-string">"name"</span>: <span class="hljs-string">"Lucas"</span>] // according template
 
 email<span class="hljs-preprocessor">.send</span> {
-    (result : SResponse!) -&gt; Void <span class="hljs-keyword">in</span>
-    // Handle result
+  (result : SResponse!) -&gt; Void <span class="hljs-keyword">in</span>
+  // Handle result
 }</code></pre>
 
 <p><strong>Shorter form</strong></p>
@@ -1806,8 +1819,8 @@ email<span class="hljs-preprocessor">.send</span> {
 user<span class="hljs-preprocessor">.email</span> = <span class="hljs-string">"dummy@synergykit.com"</span>
 
 SEmail()<span class="hljs-preprocessor">.to</span>(user)<span class="hljs-preprocessor">.subject</span>(<span class="hljs-string">"Email Example"</span>)<span class="hljs-preprocessor">.templateName</span>(<span class="hljs-string">"email-example"</span>)<span class="hljs-preprocessor">.args</span>([<span class="hljs-string">"name"</span>: <span class="hljs-string">"Lucas"</span>])<span class="hljs-preprocessor">.send</span> {
-    (result : SResponse!) -&gt; Void <span class="hljs-keyword">in</span>
-    // Handle result
+  (result : SResponse!) -&gt; Void <span class="hljs-keyword">in</span>
+  // Handle result
 }</code></pre>
 
 <p>E-mail template should looks like this example.</p>
@@ -1854,6 +1867,8 @@ SEmail()<span class="hljs-preprocessor">.to</span>(user)<span class="hljs-prepro
 </tbody></table>
 
 
+
+
 <pre class="prettyprint"><code class="language-objective-c hljs perl">SFile <span class="hljs-variable">*file</span> = [SFile new];
 
 UIImage <span class="hljs-variable">*imageToUpload</span> = [UIImage imageNamed:<span class="hljs-variable">@"</span>synergykit-logo<span class="hljs-string">"];
@@ -1871,8 +1886,8 @@ NSData <span class="hljs-variable">*imageData</span> = UIImageJPEGRepresentation
 <span class="hljs-reserved">let</span> imageData = UIImageJPEGRepresentation(imageToUpload, <span class="hljs-number">1.0</span>)
 
 file.uploadJPEGImage(imageData <span class="hljs-attribute">handler</span>: {
-    <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
-    <span class="hljs-regexp">//</span> Handle result
+  <span class="hljs-function"><span class="hljs-params">(result : SResponse!)</span> -&gt;</span> Void <span class="hljs-keyword">in</span>
+  <span class="hljs-regexp">//</span> Handle result
 })</code></pre>
 
 
@@ -2015,7 +2030,7 @@ cloudCode.invoke {
 
 <h2 id="batch-request">Batch request</h2>
 
-<p>We know that internet connection is sometimes unstable and we know itâ€™s not really good for synchronization algorithm where dozens of requests need to be executed without mistake. Batch request minimizes risk with connection failure â€“ itâ€™s all in one or nothing, not first five request, then two failed (walk under the bridge) and at the end three successful.</p>
+<p>We know that internet connection is sometimes unstable and we know itâ€™s not really good for synchronization algorithm where dozens of requests need to be executed without mistake. Batch request minimizes risk with connection failure - itâ€™s all in one or nothing, not first five request, then two failed (walk under the bridge) and at the end three successful.</p>
 
 
 
@@ -2071,7 +2086,7 @@ cloudCode.invoke {
 
 <h3 id="sbatchitemwrapper">SBatchItemWrapper</h3>
 
-<p>Every batch item need to be wrapped in <code>SBatchItemWrapper</code> where you can say what is expected in callback. If no type is set, request returns result as <code>NSDictionary</code>. Wrapper offers you to handle request response explicitly with handler. If handler is not set nothing happens, every request is handled implicitly in batch execution callback.</p>
+<p>Every batch item needs to be wrapped in <code>SBatchItemWrapper</code> where you can say what is expected in callback. If no type is set, request returns result as <code>NSDictionary</code>. Wrapper offers you to handle request response explicitly with handler. If handler is not set nothing happens, every request is handled implicitly in batch execution callback.</p>
 
 <table>
 <thead>
@@ -2218,6 +2233,8 @@ batch.executeWithCompletion {
 
 <p>SynergyKit iOS SDK implements new advanced cache policy with <code>NSURLRequestCachePolicy</code> support. If you want to start using cache in communication with API, just set cache parameter on object.</p>
 
+
+
 <h3 id="scachetypecacheelseload">SCacheTypeCacheElseLoad</h3>
 
 <p>Returns cached data if exists.</p>
@@ -2313,15 +2330,15 @@ SCache <span class="hljs-variable">*cache</span> = [[SCache alloc] initWithType:
 <li>Advanced Cache Policy</li>
 </ul>
 
+
+
 <h2 id="author">Author</h2>
 
-<p><img src="http://letsgood.com/src/img/logo-letsgood.png" alt="SynergyKIT" title="SynergyKIT" width="10%"> </p>
+<p><img src="http://letsgood.com/src/img/logo-letsgood.png" alt="SynergyKIT" title="SynergyKIT" width="120px"></p>
 
-<p>Letsgood.com s.r.o., Prague, Heart of Europe â€“ part of Etnetera Group.</p>
+<p>Letsgood.com s.r.o., Prague, Heart of Europe - part of Etnetera Group.</p>
 
 <p>development@letsgood.com, <a href="http://letsgood.com/en">http://letsgood.com/en</a></p>
-
-
 
 <h2 id="license">License</h2>
 

@@ -1,6 +1,6 @@
 # SynergyKit iOS SDK
 <p align="left" style="margin-bottom:0;" >
-<img src="https://synergykit.blob.core.windows.net/synergykit/synergykitlogo.png" alt="Synergykit" title="Synergykit" width="33%">
+<img src="https://synergykit.blob.core.windows.net/synergykit/synergykitlogo.png" alt="Synergykit" title="Synergykit" width="224px">
 </p>
 [![Version](https://img.shields.io/cocoapods/v/SynergyKit-SDK.svg?style=flat)](http://cocoadocs.org/docsets/SynergyKit-SDK) [![License](https://img.shields.io/cocoapods/l/SynergyKit-SDK.svg?style=flat)](http://cocoadocs.org/docsets/SynergyKit-SDK) [![Platform](https://img.shields.io/cocoapods/p/SynergyKit-SDK.svg?style=flat)](http://cocoadocs.org/docsets/SynergyKit-SDK)
 
@@ -13,7 +13,7 @@ We know how hard can be to work with untried API, so we prepared SDKs for mostly
 
 - [Android SDK](https://github.com/SynergyKit/synergykit-sdk-android)
 - [Node.js SDK](https://github.com/SynergyKit/synergykit-sdk-nodejs)
-<br>
+- [JavaScript SDK](https://github.com/SynergyKit/synergykit-sdk-javascript)
 
 **Table of content**
 
@@ -25,12 +25,16 @@ Almost all possibilities of SynergyKit are presented in Sample Application that 
 
 ### Sample App Installation 
 
-- Clone or download the repository.
-- Go to SampleApp folder in Terminal.
-- Run `pod install`\*.
-- Open .xcworkspace file.
+ 1. Clone or download the repository.
+`git clone https://github.com/SynergyKit/synergykit-sdk-ios`
 
-\* ***Cocoapods required***
+ 2. Go to SampleApp folder in Terminal.
+
+ 3. Install pods (**CocoaPods required**).
+`pod install`
+
+ 4. Open .xcworkspace file.
+`open sampleapp.xcworkspace`
 
 ## SDK Installation
 
@@ -43,9 +47,9 @@ Almost all possibilities of SynergyKit are presented in Sample Application that 
 ### Building a model
 Building of data model is one of the most important activity in application development.
 
-If you want to use SynergyKit SDK for development, you need to start with subclassing of `SynergykitObject` in data model. `SynergykitObject` contains *must have* properties for communication with SynergyKit â€“ _id, __v,  createdAt and updatedAt. It also conforms to `SynergykitProtocol`,  `SBatchableProtocol` and `SCacheableProtocol` that simplify cooperation with SynergyKit.
+If you want to use SynergyKit SDK for development, you need to start with subclassing of `SynergykitObject` in data model. `SynergykitObject` contains *must have* properties for communication with SynergyKit - _id, __v,  createdAt and updatedAt. It also conforms to `SynergykitProtocol`,  `SBatchableProtocol` and `SCacheableProtocol` that simplify cooperation with SynergyKit.
 
-`SynergykitObject` serialization and deserialization is based on [JSONModel](http://www.jsonmodel.com). Marin Todorov â€“ author of JSONModel â€“ presents nice examples of magic modelling framework on [github framework page here](https://github.com/icanzilb/JSONModel/#examples).
+`SynergykitObject` serialization and deserialization is based on [JSONModel](http://www.jsonmodel.com). Marin Todorov - author of JSONModel - presents nice examples of magic modelling framework on [github framework page here](https://github.com/icanzilb/JSONModel/#examples).
 
 **Be afraid of writing model in Swift. Swift is not fully supported with JSONModel.**
 #### Examples
@@ -76,7 +80,7 @@ If you want to use SynergyKit SDK for development, you need to start with subcla
 </tbody>
 </table>
 
-If your object has property that isn't synchronized with server, just say that conforms to protocol `Optional` or `Ignore`. These protocols are **important for deserialization** because json string must contain all properties *without* these protocols. [More information about JSONModel protocols](https://github.com/icanzilb/JSONModel/blob/master/README.md#optional-properties-ie-can-be-missing-or-null).
+If your object has property that isn't synchronized with server, just say that conforms to protocol `Optional` or `Ignore`. These protocols are **important for deserialization** because JSON string must contain all properties *without* these protocols. [More information about JSONModel protocols](https://github.com/icanzilb/JSONModel/blob/master/README.md#optional-properties-ie-can-be-missing-or-null).
 
 <table>
 <tbody>
@@ -107,7 +111,7 @@ If your object has property that isn't synchronized with server, just say that c
 </table>
 
 ## SynergyKit Initialization
-If installation process have been done, it's time to basic setup. There are required options as tenant and key and one optional â€“ enable debugging.
+If installation process have been done, it's time for basic setup. There are required options as tenant and key and one optional - enable debugging.
 
 Tenant and key are situated in **Settings > Application keys > Tenant** and **Settings > Application keys > Value** in Synergykit web application.
 
@@ -930,9 +934,9 @@ user.login {
 ## Communication
 In SynergyKit you can communicate with your users by different ways. There are listed some methods below this section.
 
-One way is to sending push notifications into user devices. This action need to have filled your API key for Android devices in Settings, section Android. For push notifications into iOS devices you need to fill your password and certificates into Apple section in Settings.
+One way is sending push notifications into user devices. This action need to have filled your API key for Android devices in Settings, section Android. For push notifications into iOS devices you need to fill your password and certificates into Apple section in Settings.
 
-Another way is to sending emails to your users. For this you need to create email templates in administration under Mailing section.
+Another way is sending emails to your users. For this you need to create email templates in administration under Mailing section.
 
 ### Send notification
 
@@ -1124,7 +1128,7 @@ Example cloud code function should looks like this.
 callback("Hello " + parameters.name + "!")
 ```
 ## Batch request
-We know that internet connection is sometimes unstable and we know it's not really good for synchronization algorithm where dozens of requests need to be executed without mistake. Batch request minimizes risk with connection failure â€“ it's all in one or nothing, not first five request, then two failed (walk under the bridge) and at the end three successful.
+We know that internet connection is sometimes unstable and we know it's not really good for synchronization algorithm where dozens of requests need to be executed without mistake. Batch request minimizes risk with connection failure - it's all in one or nothing, not first five request, then two failed (walk under the bridge) and at the end three successful.
 
 ### SBatchItem
 You can batch every request you can imagine with `SBatchItem` object. At first create batch item that says where and how to do it.
@@ -1143,7 +1147,7 @@ SBatchItem *item = [[SBatchItem alloc] initWithId:[NSNumber numberWithInt:1] met
 let batchItem = SBatchItem(id: NSNumber(int: 1), method: .GET, endpoint: "/data/target-collection", body: nil)
 ```
 ### SBatchItemWrapper
-Every batch item need to be wrapped in `SBatchItemWrapper` where you can say what is expected in callback. If no type is set, request returns result as `NSDictionary`. Wrapper offers you to handle request response explicitly with handler. If handler is not set nothing happens, every request is handled implicitly in batch execution callback.
+Every batch item needs to be wrapped in `SBatchItemWrapper` where you can say what is expected in callback. If no type is set, request returns result as `NSDictionary`. Wrapper offers you to handle request response explicitly with handler. If handler is not set nothing happens, every request is handled implicitly in batch execution callback.
 
 | Parameter | Type | Notes | |
 |:-|:-|:-|:-:|
@@ -1317,9 +1321,9 @@ let cache = SKCache(type: .CacheElseLoad, expiration: 60*60)
 
 ## Author
 
-<img src="http://letsgood.com/src/img/logo-letsgood.png" alt="SynergyKIT" title="SynergyKIT" width="10%"> 
+<img src="http://letsgood.com/src/img/logo-letsgood.png" alt="SynergyKIT" title="SynergyKIT" width="120px">
 
-Letsgood.com s.r.o., Prague, Heart of Europe â€“ part of Etnetera Group.
+Letsgood.com s.r.o., Prague, Heart of Europe - part of Etnetera Group.
 
 development@letsgood.com, http://letsgood.com/en
 

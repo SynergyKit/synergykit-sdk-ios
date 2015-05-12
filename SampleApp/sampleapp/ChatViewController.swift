@@ -63,7 +63,7 @@ class ChatViewController: SuperViewController, UITextFieldDelegate, SObserverCon
         super.viewDidDisappear(animated)
         let message = DemoMessage()
         message.name = self.userName != nil ? self.userName! : "Anonymous"
-        message.text = "leaved"
+        message.text = "left"
         message.userId = self.MY_USER_ID
         
         self.userStateObserver?.speakWithObject(message)
@@ -237,7 +237,7 @@ class ChatViewController: SuperViewController, UITextFieldDelegate, SObserverCon
             {
                 let message = DemoMessage()
                 message.name = self.userName != nil ? self.userName! : "Anonymous"
-                message.text = "leaved"
+                message.text = "left"
                 message.userId = self.MY_USER_ID
                 
                 self.userStateObserver?.speakWithObject(message)
