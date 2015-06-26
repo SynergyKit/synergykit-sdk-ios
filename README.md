@@ -132,6 +132,8 @@
 </div>
 </p>
 
+
+
 <h2 id="sample-application">Sample Application</h2>
 
 <p>Almost all possibilities of SynergyKit are presented in Sample Application that was developed next to SDK as introduction of how it works.</p>
@@ -149,6 +151,8 @@
 <li><p>Open .xcworkspace file. <br>
 <code>open sampleapp.xcworkspace</code></p></li>
 </ol>
+
+
 
 <h2 id="sdk-installation">SDK Installation</h2>
 
@@ -236,11 +240,9 @@
 
 <h2 id="synergykit-initialization">SynergyKit Initialization</h2>
 
-<p>If installation process have been done, itâ€™s time for basic setup. There are required options as tenant and key and one optional - enable debugging.</p>
+<p>If installation process has been done, itâ€™s time for basic setup. There are required options as tenant and key and one optional - enable debugging.</p>
 
 <p>Tenant and key are situated in <strong>Settings &gt; Application keys &gt; Tenant</strong> and <strong>Settings &gt; Application keys &gt; Value</strong> in Synergykit web application.</p>
-
-
 
 <pre class="prettyprint"><code class="language-objective-c hljs ini"><span class="hljs-title">[Synergykit setTenant:@"tenant" key:@"key"]</span><span class="hljs-comment">;</span>
 <span class="hljs-title">[Synergykit enableDebugging:YES]</span><span class="hljs-comment">;</span></code></pre>
@@ -572,12 +574,10 @@ Synergykit.enableDebugging(<span class="hljs-literal">true</span>)</code></pre>
 <tr>
   <td align="left">event</td>
   <td align="left">SMethodType</td>
-  <td align="left">Listen changes on event</td>
+  <td align="left">Listens changes on event</td>
   <td align="center"><strong>required</strong></td>
 </tr>
 </tbody></table>
-
-
 
 
 <pre class="prettyprint"><code class="language-objective-c hljs cs">SynergykitObject *<span class="hljs-keyword">object</span> = [[SynergykitObject alloc] initWithCollection:<span class="hljs-string">@"target-collection"</span>];
@@ -800,11 +800,9 @@ observer.startObservingWithObjectHandler({
 
 <h3 id="available-conditions">Available conditions</h3>
 
-<p>Query string is builded according to <a href="http://odata.org">OData Protocol</a> and is appended to the end of the url.</p>
+<p>Query string is built according to <a href="http://odata.org">OData Protocol</a> and is appended to the end of the url.</p>
 
 <p>The OData Protocol specification defines how to standardize a typed, resource-oriented CRUD interface for manipulating data sources by providing collections of entries which must have required elements.</p>
-
-
 
 <h4 id="filter">filter</h4>
 
@@ -1375,9 +1373,9 @@ user.removeRole(<span class="hljs-string">"master"</span>, <span class="hljs-att
 
 <h3 id="add-platform-to-user">Add platform to user</h3>
 
-<p>Platforms are useful for pairing individual mobile devices or web applications to the user via registration ID. After assignment platform to the user you will be able to send push notifications to the device or application.</p>
+<p>Platforms are useful for pairing individual mobile devices or web applications with a user via registration ID. Once a platform is assigned to a user, you are able to send push notifications to the device or application.</p>
 
-<p><strong>Before you start working</strong> with platforms of user is needed to login first. After successful login SDK receives sessionToken for authentication of user. Token is held by the SDK and is automatically inserted into the Headers.</p>
+<p>You can work with userâ€™s platforms after a user has logged in. After successful login SDK receives sessionToken for authentication of user. Token is held by the SDK and is automatically inserted into the Headers.</p>
 
 <table>
 <thead>
@@ -1401,8 +1399,6 @@ user.removeRole(<span class="hljs-string">"master"</span>, <span class="hljs-att
   <td align="center"><strong>required</strong></td>
 </tr>
 </tbody></table>
-
-
 
 
 <pre class="prettyprint"><code class="language-objective-c hljs objectivec">SPlatform *platform = [SPlatform new];
@@ -1467,7 +1463,7 @@ platform<span class="hljs-variable">.development</span> = [<span class="hljs-bui
 
 <h3 id="update-platform">Update platform</h3>
 
-<p>Platforms contain of a few parameters but only two are updatable. Save method executes <code>PUT</code> request if <code>_id</code> is set, it could change <code>development</code> and <code>registrationId</code>. </p>
+<p>Platforms consist of a few parameters but only two are updatable. Save method executes <code>PUT</code> request if <code>_id</code> is set, it could change <code>development</code> and <code>registrationId</code>. </p>
 
 <table>
 <thead>
@@ -1497,8 +1493,6 @@ platform<span class="hljs-variable">.development</span> = [<span class="hljs-bui
   <td align="center">optional</td>
 </tr>
 </tbody></table>
-
-
 
 
 <pre class="prettyprint"><code class="language-objective-c hljs objectivec">SPlatform *platform = [[SPlatform alloc] initWithId:@<span class="hljs-string">"platform-id"</span>];
@@ -1563,7 +1557,7 @@ platform<span class="hljs-variable">.development</span> = [<span class="hljs-bui
 
 <h3 id="activating-user">Activating user</h3>
 
-<p>By default, user is not activated. This mean, that you can use this state to validate user e-mail address by sending him activation link.</p>
+<p>By default, user is not activated. This means that you can use this state to validate user e-mail address by sending him activation link.</p>
 
 <p>To activate user, send an email with this activation link /v2/users/activation/[ACTIVATION_HASH]. You can provide parameter callback with url address where you want to redirect user after activation.</p>
 
@@ -1585,8 +1579,6 @@ platform<span class="hljs-variable">.development</span> = [<span class="hljs-bui
   <td align="center"><strong>required</strong></td>
 </tr>
 </tbody></table>
-
-
 
 
 <pre class="prettyprint"><code class="language-objective-c hljs cs">SynergykitUser *user = [[SynergykitUser alloc] initWithId:<span class="hljs-string">@"object-id"</span>];
@@ -1659,13 +1651,11 @@ user.login {
 
 <h2 id="communication">Communication</h2>
 
-<p>In SynergyKit you can communicate with your users by different ways. There are listed some methods below this section.</p>
+<p>In SynergyKit you can communicate with your users in different ways. Some methods are listed below. </p>
 
-<p>One way is sending push notifications into user devices. This action need to have filled your API key for Android devices in Settings, section Android. For push notifications into iOS devices you need to fill your password and certificates into Apple section in Settings.</p>
+<p>One way is sending push notifications to userâ€™s devices. For this action you need to have filled your API key for Android devices in Settings, section Android. For push notifications to iOS devices you need to fill your password and certificates into Apple section in Settings.</p>
 
-<p>Another way is sending emails to your users. For this you need to create email templates in administration under Mailing section.</p>
-
-
+<p>Another way is sending emails to your users. To be able to do this you need to create email templates in administration under Mailing section.</p>
 
 <h3 id="send-notification">Send notification</h3>
 
@@ -1709,8 +1699,6 @@ user.login {
   <td align="center">optional</td>
 </tr>
 </tbody></table>
-
-
 
 
 <pre class="prettyprint"><code class="language-objective-c hljs perl">SynergykitUser <span class="hljs-variable">*user</span> = [[SynergykitUser alloc] initWithId:<span class="hljs-variable">@"</span>user-id<span class="hljs-string">"];
@@ -1823,9 +1811,7 @@ SEmail()<span class="hljs-preprocessor">.to</span>(user)<span class="hljs-prepro
   // Handle result
 }</code></pre>
 
-<p>E-mail template should looks like this example.</p>
-
-
+<p>E-mail template should look like this example.</p>
 
 <pre class="prettyprint"><code class=" hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Hello %name%,<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
@@ -1966,10 +1952,7 @@ file.uploadJPEGImage(imageData <span class="hljs-attribute">handler</span>: {
 
 <p>Our vision is to let developers build any app without dealing with servers. For complex apps, sometimes you just need a bit of logic that isnâ€™t running on a mobile device. Cloud Code makes this possible.</p>
 
-<p>Cloud Code runs in the Node.js jailed sandbox and uses strict JavaScript language with some prepared modules and variables, which you can use for your development. <br>
-mac</p>
-
-
+<p>Cloud Code runs in the Node.js jailed sandbox and uses strict JavaScript language with some prepared modules and variables, which you can use for your development.</p>
 
 <h3 id="run-cloud-code">Run cloud code</h3>
 
@@ -2329,16 +2312,6 @@ SCache <span class="hljs-variable">*cache</span> = [[SCache alloc] initWithType:
 <li>Batching requests</li>
 <li>Advanced Cache Policy</li>
 </ul>
-
-
-
-<h2 id="author">Author</h2>
-
-<p><img src="http://letsgood.com/src/img/logo-letsgood.png" alt="SynergyKIT" title="SynergyKIT" width="120px"></p>
-
-<p>Letsgood.com s.r.o., Prague, Heart of Europe - part of Etnetera Group.</p>
-
-<p>development@letsgood.com, <a href="http://letsgood.com/en">http://letsgood.com/en</a></p>
 
 <h2 id="license">License</h2>
 

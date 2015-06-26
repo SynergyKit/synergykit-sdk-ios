@@ -111,7 +111,7 @@ If your object has property that isn't synchronized with server, just say that c
 </table>
 
 ## SynergyKit Initialization
-If installation process have been done, it's time for basic setup. There are required options as tenant and key and one optional - enable debugging.
+If installation process has been done, it's time for basic setup. There are required options as tenant and key and one optional - enable debugging.
 
 Tenant and key are situated in **Settings > Application keys > Tenant** and **Settings > Application keys > Value** in Synergykit web application.
 
@@ -310,7 +310,7 @@ SObserver.connectionDelegate(self)
 | Parameter | Type | Notes | |
 |:-|:-|:-|:-:|
 |object |SynergykitObject| Determines location and return type | **required**
-|event |SMethodType | Listen changes on event| **required**
+|event |SMethodType | Listens changes on event| **required**
 
 ```objective-c
 SynergykitObject *object = [[SynergykitObject alloc] initWithCollection:@"target-collection"];
@@ -447,7 +447,7 @@ You can retrieve multiple objects at once by sending a request with query. If qu
 For more complex filtering and sorting SynergyKit accepts OData standard. These queries can be used with data, users and files.
 
 ### Available conditions
-Query string is builded according to [OData Protocol](http://odata.org) and is appended to the end of the url.
+Query string is built according to [OData Protocol](http://odata.org) and is appended to the end of the url.
 
 The OData Protocol specification defines how to standardize a typed, resource-oriented CRUD interface for manipulating data sources by providing collections of entries which must have required elements.
 
@@ -776,9 +776,9 @@ user.removeRole("master", handler: {
 ```
 
 ### Add platform to user
-Platforms are useful for pairing individual mobile devices or web applications to the user via registration ID. After assignment platform to the user you will be able to send push notifications to the device or application.
+Platforms are useful for pairing individual mobile devices or web applications with a user via registration ID. Once a platform is assigned to a user, you are able to send push notifications to the device or application.
 
-**Before you start working** with platforms of user is needed to login first. After successful login SDK receives sessionToken for authentication of user. Token is held by the SDK and is automatically inserted into the Headers.
+You can work with user’s platforms after a user has logged in. After successful login SDK receives sessionToken for authentication of user. Token is held by the SDK and is automatically inserted into the Headers.
 
 | Parameter | Type | Notes | |
 |:-|:-|:-|:-:|
@@ -828,7 +828,7 @@ platform.fetch {
 ```
 
 ### Update platform
-Platforms contain of a few parameters but only two are updatable. Save method executes `PUT` request if `_id` is set, it could change `development` and `registrationId`. 
+Platforms consist of a few parameters but only two are updatable. Save method executes `PUT` request if `_id` is set, it could change `development` and `registrationId`. 
 
 | Parameter | Type | Notes | |
 |:-|:-|:-|:-:|
@@ -878,7 +878,7 @@ platform.destroy {
 ```
 
 ### Activating user
-By default, user is not activated. This mean, that you can use this state to validate user e-mail address by sending him activation link.
+By default, user is not activated. This means that you can use this state to validate user e-mail address by sending him activation link.
 
 To activate user, send an email with this activation link /v2/users/activation/[ACTIVATION_HASH]. You can provide parameter callback with url address where you want to redirect user after activation.
 
@@ -932,11 +932,11 @@ user.login {
 ```
 
 ## Communication
-In SynergyKit you can communicate with your users by different ways. There are listed some methods below this section.
+In SynergyKit you can communicate with your users in different ways. Some methods are listed below. 
 
-One way is sending push notifications into user devices. This action need to have filled your API key for Android devices in Settings, section Android. For push notifications into iOS devices you need to fill your password and certificates into Apple section in Settings.
+One way is sending push notifications to user’s devices. For this action you need to have filled your API key for Android devices in Settings, section Android. For push notifications to iOS devices you need to fill your password and certificates into Apple section in Settings.
 
-Another way is sending emails to your users. For this you need to create email templates in administration under Mailing section.
+Another way is sending emails to your users. To be able to do this you need to create email templates in administration under Mailing section.
 
 ### Send notification
 
@@ -1019,7 +1019,7 @@ SEmail().to(user).subject("Email Example").templateName("email-example").args(["
 }
 ```
 
-E-mail template should looks like this example.
+E-mail template should look like this example.
 ```
 <p>Hello %name%,</p>
 <br>
@@ -1097,7 +1097,6 @@ SFile(id: "file-id").destroy {
 Our vision is to let developers build any app without dealing with servers. For complex apps, sometimes you just need a bit of logic that isn't running on a mobile device. Cloud Code makes this possible.
 
 Cloud Code runs in the Node.js jailed sandbox and uses strict JavaScript language with some prepared modules and variables, which you can use for your development.
-mac
 
 ### Run cloud code
 
@@ -1318,14 +1317,6 @@ let cache = SKCache(type: .CacheElseLoad, expiration: 60*60)
 - Batching requests
 - Advanced Cache Policy
 
-
-## Author
-
-<img src="http://letsgood.com/src/img/logo-letsgood.png" alt="SynergyKIT" title="SynergyKIT" width="120px">
-
-Letsgood.com s.r.o., Prague, Heart of Europe - part of Etnetera Group.
-
-development@letsgood.com, http://letsgood.com/en
 
 ## License
 
